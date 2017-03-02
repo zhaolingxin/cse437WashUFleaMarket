@@ -10,25 +10,25 @@ import UIKit
 
 class FavoriteController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var tableView: UITableView!
-    var defaults = NSUserDefaults.standardUserDefaults()
+    var defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
-        let data=NSUserDefaults.standardUserDefaults().arrayForKey("favoriteMovie")!
+        let data=UserDefaults.standard.array(forKey: "favoriteMovie")!
         if data.count==0{
             showAlert()
         }
         setupTableView()
         self.title = "Favorites"
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED,0)){
-            dispatch_async(dispatch_get_main_queue()){
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async{
+            DispatchQueue.main.async{
                 self.tableView.reloadData()
             }
         }
         // Do any additional setup after loading the view, typically from a nib.
     }
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let data=NSUserDefaults.standardUserDefaults().arrayForKey("favoriteMovie")!
+        let data=UserDefaults.standard.array(forKey: "favoriteMovie")!
         if data.count==0{
             showAlert()
         }
@@ -36,17 +36,17 @@ class FavoriteController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     func showAlert(){
         let alertController = UIAlertController(title: "", message:
-            "NO FAVORITE", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            "NO FAVORITE", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func setupTableView() {
         tableView = UITableView(frame: view.frame.offsetBy(dx:0, dy: 20))
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
     }
     
@@ -55,23 +55,23 @@ class FavoriteController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return NSUserDefaults.standardUserDefaults().arrayForKey("favoriteMovie")!.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return UserDefaults.standard.array(forKey: "favoriteMovie")!.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
-        cell.textLabel!.text = NSUserDefaults.standardUserDefaults().arrayForKey("favoriteMovie")![indexPath.row] as? String
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        cell.textLabel!.text = UserDefaults.standard.array(forKey: "favoriteMovie")![indexPath.row] as? String
         return cell
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            var arrayInDefault=NSUserDefaults.standardUserDefaults().arrayForKey("favoriteMovie") as! [String]
-            arrayInDefault.removeAtIndex(indexPath.row)
-            NSUserDefaults.standardUserDefaults().setObject(arrayInDefault, forKey: "favoriteMovie")
-            NSUserDefaults.standardUserDefaults().synchronize()
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Right)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            var arrayInDefault=UserDefaults.standard.array(forKey: "favoriteMovie") as! [String]
+            arrayInDefault.remove(at: indexPath.row)
+            UserDefaults.standard.set(arrayInDefault, forKey: "favoriteMovie")
+            UserDefaults.standard.synchronize()
+            tableView.deleteRows(at: [indexPath], with: .right)
         }
         tableView.reloadData()
     }

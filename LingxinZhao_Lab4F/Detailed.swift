@@ -27,7 +27,7 @@ class Detailed: UIViewController {
         theImage.image = image
         theLabel.text = name
         theYear.text = "Released:\(year)"
-        theYear.textAlignment = .Center
+        theYear.textAlignment = .center
         theScore.text="Score:\(score)/10"
         theRated.text="Rated:\(rated)"
         
@@ -39,20 +39,20 @@ class Detailed: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     //add the movie to favorite
-    @IBAction func add(sender: AnyObject) {
-        var storedData=NSUserDefaults.standardUserDefaults().objectForKey("favoriteMovie") as? [String] ?? [String]()
+    @IBAction func add(_ sender: AnyObject) {
+        var storedData=UserDefaults.standard.object(forKey: "favoriteMovie") as? [String] ?? [String]()
         if !storedData.contains(name){
             storedData.append(name)
         }
-        NSUserDefaults.standardUserDefaults().setObject(storedData,forKey: "favoriteMovie")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.set(storedData,forKey: "favoriteMovie")
+        UserDefaults.standard.synchronize()
     }
 
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
