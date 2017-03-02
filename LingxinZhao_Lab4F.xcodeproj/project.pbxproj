@@ -16,7 +16,7 @@
 		E80CD4061DAC172000832D58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E80CD4041DAC172000832D58 /* LaunchScreen.storyboard */; };
 		E80CD4111DAC172000832D58 /* LingxinZhao_Lab4FTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CD4101DAC172000832D58 /* LingxinZhao_Lab4FTests.swift */; };
 		E80CD41C1DAC172000832D58 /* LingxinZhao_Lab4FUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CD41B1DAC172000832D58 /* LingxinZhao_Lab4FUITests.swift */; };
-		E80CD42B1DAC1B2500832D58 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CD42A1DAC1B2500832D58 /* Movie.swift */; };
+		E80CD42B1DAC1B2500832D58 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CD42A1DAC1B2500832D58 /* Item.swift */; };
 		E80CD42D1DAC1D6B00832D58 /* MovieSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CD42C1DAC1D6B00832D58 /* MovieSearchController.swift */; };
 		E80CD42F1DAC1D7D00832D58 /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CD42E1DAC1D7D00832D58 /* FavoriteController.swift */; };
 		E80CD4311DAC1E7000832D58 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CD4301DAC1E7000832D58 /* SwiftyJSON.swift */; };
@@ -68,7 +68,7 @@
 		E80CD4171DAC172000832D58 /* LingxinZhao_Lab4FUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LingxinZhao_Lab4FUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E80CD41B1DAC172000832D58 /* LingxinZhao_Lab4FUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LingxinZhao_Lab4FUITests.swift; sourceTree = "<group>"; };
 		E80CD41D1DAC172000832D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E80CD42A1DAC1B2500832D58 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		E80CD42A1DAC1B2500832D58 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E80CD42C1DAC1D6B00832D58 /* MovieSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieSearchController.swift; sourceTree = "<group>"; };
 		E80CD42E1DAC1D7D00832D58 /* FavoriteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		E80CD4301DAC1E7000832D58 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 				E8912DF21DAF526A00EC4EE3 /* Detailed.xib */,
 				E80CD4041DAC172000832D58 /* LaunchScreen.storyboard */,
 				E80CD4071DAC172000832D58 /* Info.plist */,
-				E80CD42A1DAC1B2500832D58 /* Movie.swift */,
+				E80CD42A1DAC1B2500832D58 /* Item.swift */,
 				E80CD42C1DAC1D6B00832D58 /* MovieSearchController.swift */,
 				E87BB8981E68BE0B0091315D /* GoogleService-Info.plist */,
 				E80CD42E1DAC1D7D00832D58 /* FavoriteController.swift */,
@@ -491,7 +491,7 @@
 				E8912DF01DAED58300EC4EE3 /* MyCell.swift in Sources */,
 				E8912DF31DAF526A00EC4EE3 /* Detailed.swift in Sources */,
 				E80CD3FC1DAC172000832D58 /* AppDelegate.swift in Sources */,
-				E80CD42B1DAC1B2500832D58 /* Movie.swift in Sources */,
+				E80CD42B1DAC1B2500832D58 /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  Movie.swift
+//  Item.swift
 //  LingxinZhao_Lab4F
 //
 //  Created by Lingxin Zhao on 10/10/16.
@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct Movie{
+struct Item{
     var id:String
     var name:String
     var url:String

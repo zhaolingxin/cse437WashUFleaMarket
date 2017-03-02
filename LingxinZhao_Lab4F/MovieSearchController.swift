@@ -14,8 +14,8 @@ class MovieSearchController: UIViewController,UICollectionViewDelegateFlowLayout
     var indicator: UIActivityIndicatorView!=UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     @IBOutlet weak var yearSlider: UISlider!
     @IBOutlet weak var searchBar: UISearchBar!
-    var theData:[Movie]=[]
-    var theDataTemp:[Movie]=[]
+    var theData:[Item]=[]
+    var theDataTemp:[Item]=[]
     var theImageCache:[UIImage]=[]
     var collectionView: UICollectionView!
     var movieTitle:String=""
@@ -48,7 +48,7 @@ class MovieSearchController: UIViewController,UICollectionViewDelegateFlowLayout
             if(sender.value>=0){
                 let currentValue = yearArray[Int(round(sender.value))]
                 print(currentValue)
-                var filteredMovie:[Movie]=[]
+                var filteredMovie:[Item]=[]
                 for movie2 in theDataTemp{
                     if let year2=Int(movie2.released){
                         if year2<=currentValue{
@@ -129,7 +129,7 @@ class MovieSearchController: UIViewController,UICollectionViewDelegateFlowLayout
                 let json2=self.getJSON("http://www.omdbapi.com/?i=\(id)")
                 score=json2["imdbRating"].stringValue
                 rated=json2["Rated"].stringValue
-                self.theData.append(Movie(id:id,name:name,url:url,released:released,score:score,rated:rated))
+                self.theData.append(Item(id:id,name:name,url:url,released:released,score:score,rated:rated))
             }
         }
         if self.theData.count==10{
@@ -148,7 +148,7 @@ class MovieSearchController: UIViewController,UICollectionViewDelegateFlowLayout
                     let json2=self.getJSON("http://www.omdbapi.com/?i=\(id)")
                     score=json2["imdbRating"].stringValue
                     rated=json2["Rated"].stringValue
-                    self.theData.append(Movie(id:id,name:name,url:url,released:released,score:score,rated:rated))
+                    self.theData.append(Item(id:id,name:name,url:url,released:released,score:score,rated:rated))
                 }
             }
             
