@@ -1,0 +1,6 @@
+framework module Pods_LingxinZhao_Lab4F {
+  umbrella header "Pods-LingxinZhao_Lab4F-umbrella.h"
+
+  export *
+  module * { export * }
+}
