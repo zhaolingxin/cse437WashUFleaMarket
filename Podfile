@@ -5,8 +5,9 @@ target 'LingxinZhao_Lab4F' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for LingxinZhao_Lab4F
-
+  
+  pod ‘Firebase’
+ 
   target 'LingxinZhao_Lab4FTests' do
     inherit! :search_paths
     # Pods for testing

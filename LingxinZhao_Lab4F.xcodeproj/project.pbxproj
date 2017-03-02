@@ -24,6 +24,7 @@
 		E85356731DB8552100A1344C /* ios8-video-app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E85356721DB8552100A1344C /* ios8-video-app-icon.png */; };
 		E85356751DB8556A00A1344C /* imovie-ios-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E85356741DB8556A00A1344C /* imovie-ios-icon.png */; };
 		E85356771DB867C600A1344C /* 1476404080_38.png in Resources */ = {isa = PBXBuildFile; fileRef = E85356761DB867C600A1344C /* 1476404080_38.png */; };
+		E87BB8991E68BE0B0091315D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E87BB8981E68BE0B0091315D /* GoogleService-Info.plist */; };
 		E8912DF01DAED58300EC4EE3 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8912DEF1DAED58300EC4EE3 /* MyCell.swift */; };
 		E8912DF31DAF526A00EC4EE3 /* Detailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8912DF11DAF526A00EC4EE3 /* Detailed.swift */; };
 		E8912DF41DAF526A00EC4EE3 /* Detailed.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8912DF21DAF526A00EC4EE3 /* Detailed.xib */; };
@@ -75,6 +76,7 @@
 		E85356721DB8552100A1344C /* ios8-video-app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios8-video-app-icon.png"; path = "Assets.xcassets/ios8-video-app-icon.imageset/ios8-video-app-icon.png"; sourceTree = "<group>"; };
 		E85356741DB8556A00A1344C /* imovie-ios-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imovie-ios-icon.png"; sourceTree = "<group>"; };
 		E85356761DB867C600A1344C /* 1476404080_38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1476404080_38.png; sourceTree = "<group>"; };
+		E87BB8981E68BE0B0091315D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E8912DEF1DAED58300EC4EE3 /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		E8912DF11DAF526A00EC4EE3 /* Detailed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detailed.swift; sourceTree = "<group>"; };
 		E8912DF21DAF526A00EC4EE3 /* Detailed.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Detailed.xib; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				E80CD4071DAC172000832D58 /* Info.plist */,
 				E80CD42A1DAC1B2500832D58 /* Movie.swift */,
 				E80CD42C1DAC1D6B00832D58 /* MovieSearchController.swift */,
+				E87BB8981E68BE0B0091315D /* GoogleService-Info.plist */,
 				E80CD42E1DAC1D7D00832D58 /* FavoriteController.swift */,
 				E8912DEF1DAED58300EC4EE3 /* MyCell.swift */,
 			);
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E85356771DB867C600A1344C /* 1476404080_38.png in Resources */,
+				E87BB8991E68BE0B0091315D /* GoogleService-Info.plist in Resources */,
 				E85356711DB854DE00A1344C /* Cinema-Documentary-icon.png in Resources */,
 				E85356751DB8556A00A1344C /* imovie-ios-icon.png in Resources */,
 				E85356731DB8552100A1344C /* ios8-video-app-icon.png in Resources */,
