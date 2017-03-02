@@ -17,6 +17,7 @@
 		E80CD42D1DAC1D6B00832D58 /* MovieSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CD42C1DAC1D6B00832D58 /* MovieSearchController.swift */; };
 		E80CD42F1DAC1D7D00832D58 /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CD42E1DAC1D7D00832D58 /* FavoriteController.swift */; };
 		E80CD4311DAC1E7000832D58 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80CD4301DAC1E7000832D58 /* SwiftyJSON.swift */; };
+		E81EB4221E68B6A900DF7036 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E81EB4211E68B6A900DF7036 /* GoogleService-Info.plist */; };
 		E85356711DB854DE00A1344C /* Cinema-Documentary-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E85356701DB854DE00A1344C /* Cinema-Documentary-icon.png */; };
 		E85356731DB8552100A1344C /* ios8-video-app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E85356721DB8552100A1344C /* ios8-video-app-icon.png */; };
 		E85356751DB8556A00A1344C /* imovie-ios-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E85356741DB8556A00A1344C /* imovie-ios-icon.png */; };
@@ -60,6 +61,7 @@
 		E80CD42C1DAC1D6B00832D58 /* MovieSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieSearchController.swift; sourceTree = "<group>"; };
 		E80CD42E1DAC1D7D00832D58 /* FavoriteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		E80CD4301DAC1E7000832D58 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		E81EB4211E68B6A900DF7036 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E85356701DB854DE00A1344C /* Cinema-Documentary-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Cinema-Documentary-icon.png"; path = "Assets.xcassets/Cinema-Documentary-icon.imageset/Cinema-Documentary-icon.png"; sourceTree = "<group>"; };
 		E85356721DB8552100A1344C /* ios8-video-app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ios8-video-app-icon.png"; path = "Assets.xcassets/ios8-video-app-icon.imageset/ios8-video-app-icon.png"; sourceTree = "<group>"; };
 		E85356741DB8556A00A1344C /* imovie-ios-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imovie-ios-icon.png"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				E80CD4071DAC172000832D58 /* Info.plist */,
 				E80CD42A1DAC1B2500832D58 /* Movie.swift */,
 				E80CD42C1DAC1D6B00832D58 /* MovieSearchController.swift */,
+				E81EB4211E68B6A900DF7036 /* GoogleService-Info.plist */,
 				E80CD42E1DAC1D7D00832D58 /* FavoriteController.swift */,
 				E8912DEF1DAED58300EC4EE3 /* MyCell.swift */,
 			);
@@ -264,6 +267,7 @@
 			files = (
 				E85356771DB867C600A1344C /* 1476404080_38.png in Resources */,
 				E85356711DB854DE00A1344C /* Cinema-Documentary-icon.png in Resources */,
+				E81EB4221E68B6A900DF7036 /* GoogleService-Info.plist in Resources */,
 				E85356751DB8556A00A1344C /* imovie-ios-icon.png in Resources */,
 				E85356731DB8552100A1344C /* ios8-video-app-icon.png in Resources */,
 				E80CD4061DAC172000832D58 /* LaunchScreen.storyboard in Resources */,
