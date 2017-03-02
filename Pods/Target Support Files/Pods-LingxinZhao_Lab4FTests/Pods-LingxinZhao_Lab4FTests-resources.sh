@@ -18,9 +18,12 @@ case "${TARGETED_DEVICE_FAMILY}" in
   2)
     TARGET_DEVICE_ARGS="--target-device ipad"
     ;;
+<<<<<<< HEAD
   3)
     TARGET_DEVICE_ARGS="--target-device tv"
     ;;
+=======
+>>>>>>> origin/master
   *)
     TARGET_DEVICE_ARGS="--target-device mac"
     ;;
