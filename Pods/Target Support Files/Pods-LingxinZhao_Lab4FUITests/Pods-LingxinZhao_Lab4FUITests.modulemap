@@ -1,6 +1,0 @@
-framework module Pods_LingxinZhao_Lab4FUITests {
-  umbrella header "Pods-LingxinZhao_Lab4FUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
