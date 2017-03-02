@@ -11,7 +11,7 @@ import Foundation
 class MovieSearchController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,UISearchBarDelegate {
     
     @IBOutlet weak var clearFavorite: UIButton!
-    var indicator: UIActivityIndicatorView!=UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+    var indicator: UIActivityIndicatorView!=UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     @IBOutlet weak var yearSlider: UISlider!
     @IBOutlet weak var searchBar: UISearchBar!
     var theData:[Movie]=[]
@@ -19,12 +19,12 @@ class MovieSearchController: UIViewController,UICollectionViewDelegateFlowLayout
     var theImageCache:[UIImage]=[]
     var collectionView: UICollectionView!
     var movieTitle:String=""
-    var notFound:UITextView=UITextView(frame:CGRectMake(140, 300, 200, 200))
+    var notFound:UITextView=UITextView(frame:CGRect(x: 140, y: 300, width: 200, height: 200))
     var yearArray:[Int]=[]
     
-    @IBAction func buttonClicked(sender: UIButton) {
-        NSUserDefaults.standardUserDefaults().setObject([], forKey: "favoriteMovie")
-        NSUserDefaults.standardUserDefaults().synchronize()
+    @IBAction func buttonClicked(_ sender: UIButton) {
+        UserDefaults.standard.set([], forKey: "favoriteMovie")
+        UserDefaults.standard.synchronize()
     }
     override func viewDidLoad() {
         indicator.center=view.center
@@ -38,7 +38,7 @@ class MovieSearchController: UIViewController,UICollectionViewDelegateFlowLayout
         super.viewDidLoad()
     }
     
-    @IBAction func yearFiltered(sender: UISlider) {
+    @IBAction func yearFiltered(_ sender: UISlider) {
         if theDataTemp.count==0 {
             return
         }
@@ -64,24 +64,24 @@ class MovieSearchController: UIViewController,UICollectionViewDelegateFlowLayout
         collectionView.reloadData()
     }
     
-    func sortFunc(num1: Int, num2: Int) -> Bool {
+    func sortFunc(_ num1: Int, num2: Int) -> Bool {
         return num1 < num2
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        notFound.bringSubviewToFront(self.view)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        notFound.bringSubview(toFront: self.view)
         if searchBar.text != nil{
-            dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED,0)){
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async{
                 self.theData.removeAll()
                 self.theImageCache.removeAll()
-                self.movieTitle=searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-                dispatch_async(dispatch_get_main_queue()){
+                self.movieTitle=searchBar.text!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                DispatchQueue.main.async{
                     //self.view.addSubview(self.indicator)
                     self.indicator.startAnimating()
                 }
                 self.fetchDataForCollectionView()
                 self.cacheImages()
-                dispatch_async(dispatch_get_main_queue()){
+                DispatchQueue.main.async{
                     self.collectionView.reloadData()
                     self.indicator.stopAnimating()
                 }
@@ -102,11 +102,11 @@ class MovieSearchController: UIViewController,UICollectionViewDelegateFlowLayout
         collectionView=UICollectionView(frame:view.frame.offsetBy(dx: 0, dy: 50), collectionViewLayout:layout)
         self.view.addSubview(collectionView)
         collectionView.delegate = self
-        collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView.backgroundColor = UIColor.white
         collectionView.dataSource=self
-        collectionView.registerClass(MyCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(MyCell.self, forCellWithReuseIdentifier: "cell")
         self.view.addSubview(indicator)
-        notFound.bringSubviewToFront(self.view)
+        notFound.bringSubview(toFront: self.view)
     }
     
     func fetchDataForCollectionView(){
@@ -116,7 +116,7 @@ class MovieSearchController: UIViewController,UICollectionViewDelegateFlowLayout
         json=self.getJSON("http://www.omdbapi.com/?s=\(self.movieTitle)")
         if json["Error"].stringValue=="Movie not found!"{
             self.view.addSubview(self.notFound)
-            notFound.bringSubviewToFront(self.view)
+            notFound.bringSubview(toFront: self.view)
         }
         else{
             for result in json["Search"].arrayValue{
@@ -162,25 +162,25 @@ class MovieSearchController: UIViewController,UICollectionViewDelegateFlowLayout
                 print("movie\(movie.name)does not have a valid year")
             }
         }
-        yearArray = yearArray.sort { $0 < $1 }
+        yearArray = yearArray.sorted { $0 < $1 }
         theDataTemp=theData
         yearSlider.minimumValue=Float(0)
         yearSlider.maximumValue=Float(self.yearArray.count)-1
     }
    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return theData.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! MyCell
-        cell.backgroundColor = UIColor.clearColor()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyCell
+        cell.backgroundColor = UIColor.clear
         cell.textLabel!.text = theData[indexPath.item].name
         cell.imageView?.image = theImageCache[indexPath.item]
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailedVC = Detailed(nibName: "Detailed", bundle: nil)
         detailedVC.name = theData[indexPath.item].name
         detailedVC.image = theImageCache[indexPath.item]
@@ -191,9 +191,9 @@ class MovieSearchController: UIViewController,UICollectionViewDelegateFlowLayout
         navigationController?.pushViewController(detailedVC, animated: true)
     }
     
-    func getJSON(url: String) -> JSON {
-        if let nsurl = NSURL(string: url) {
-            if let data = NSData(contentsOfURL: nsurl) {
+    func getJSON(_ url: String) -> JSON {
+        if let nsurl = URL(string: url) {
+            if let data = try? Data(contentsOf: nsurl) {
                 let json = JSON(data: data)
                 return json
             } else {
@@ -207,12 +207,12 @@ class MovieSearchController: UIViewController,UICollectionViewDelegateFlowLayout
     
     func cacheImages() {
         for item in theData {
-            let url = NSURL(string: item.url)
-            let data = NSData(contentsOfURL: url!)
+            let url = URL(string: item.url)
+            let data = try? Data(contentsOf: url!)
             if data==nil {
                 let nullImage="https://www.wired.com/wp-content/uploads/2015/11/GettyImages-134367495.jpg"
-                let nullURL = NSURL(string: nullImage)
-                let data = NSData(contentsOfURL:nullURL!)
+                let nullURL = URL(string: nullImage)
+                let data = try? Data(contentsOf: nullURL!)
                 let image = UIImage(data: data!)
                 self.theImageCache.append(image!)
             }
